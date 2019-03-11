@@ -21,6 +21,14 @@
     <string name="opcio4">Buscando en Google</string>
     <string name="opcio5">Llamando el Tlfn.</string>
     <string name="opcio6">Accediendo a contactos</string>
+    <string name="link">\thttp://www.udl.cat</string>
+    <string name="marcar">Marcar</string>
+    <string name="sms">Enviar SMS</string>
+    <string name="email">Enviar email</string>
+    <string name="emailDest">Email destinatario: sss@udl.cat\t</string>
+    <string name="smsDest">Tlf. destino: 6466888777\t</string>
+    <string name="gallery">Acceder Galería imágenes</string>
+    <string name="cam">Acceder Camara</string>
 
 
 </resources>
