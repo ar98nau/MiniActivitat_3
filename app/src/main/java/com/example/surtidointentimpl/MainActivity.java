@@ -6,17 +6,23 @@ import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.InputStream;
 
 import static android.content.Intent.EXTRA_TEXT;
 
@@ -57,6 +63,16 @@ public class MainActivity extends Activity implements OnClickListener{
 		if (Build.VERSION.SDK_INT >= 23)
 			if (! ckeckPermissions())
 				requestPermissions();
+	}
+
+	protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+		switch (requestCode) {
+			case 0:
+				ImageView img = findViewById(R.id.imageView);
+				Uri uri = data.getData();
+				InputStream str = getContentResolver().openInputStream(uri);
+				Bitmap bit = BitmapFactory.decodeStream();
+		}
 	}
 
 	public void onClick (View v) {
@@ -132,8 +148,14 @@ public class MainActivity extends Activity implements OnClickListener{
 			//Acceder galeria
 			case R.id.button10:
 				Toast.makeText(this, getString(R.string.opcio10), Toast.LENGTH_LONG).show();
-				in = new Intent(Intent.ACTION_VIEW, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-				startActivity(in);
+
+				//obligatoria
+//				in = new Intent(Intent.ACTION_VIEW, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//				startActivity(in);
+
+				//optatiu
+				in = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+				startActivityForResult(in, 0);
 				break;
 			//Acceder camara
 			case R.id.button11:
