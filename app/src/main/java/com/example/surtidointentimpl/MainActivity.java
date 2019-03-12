@@ -19,30 +19,30 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener{
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.main);
+		setContentView(R.layout.main);
 
-	    Button btn1 = findViewById(R.id.button1);
-	    Button btn2 = findViewById(R.id.button2);
-	    Button btn3 = findViewById(R.id.button3);
-	    Button btn4 = findViewById(R.id.button4);
-	    Button btn5 = findViewById(R.id.button5);
-	    Button btn6 = findViewById(R.id.button6);
+		Button btn1 = findViewById(R.id.button1);
+		Button btn2 = findViewById(R.id.button2);
+		Button btn3 = findViewById(R.id.button3);
+		Button btn4 = findViewById(R.id.button4);
+		Button btn5 = findViewById(R.id.button5);
+		Button btn6 = findViewById(R.id.button6);
 
-	    btn1.setOnClickListener(this);
-	    btn2.setOnClickListener(this);
-	    btn3.setOnClickListener(this);
-	    btn4.setOnClickListener(this);
-	    btn5.setOnClickListener(this);
-	    btn6.setOnClickListener(this);
-		
-	    if (Build.VERSION.SDK_INT >= 23)
-	        if (! ckeckPermissions())
-		   requestPermissions();	  
+		btn1.setOnClickListener(this);
+		btn2.setOnClickListener(this);
+		btn3.setOnClickListener(this);
+		btn4.setOnClickListener(this);
+		btn5.setOnClickListener(this);
+		btn6.setOnClickListener(this);
+
+		if (Build.VERSION.SDK_INT >= 23)
+			if (! ckeckPermissions())
+				requestPermissions();
 	}
 
 	public void onClick (View v) {
@@ -54,40 +54,67 @@ public class MainActivity extends Activity implements OnClickListener{
 		final String textoABuscar = "escuela politecnica superior";
 
 		switch (v.getId()) {
-	    case R.id.button1: 
-	        Toast.makeText(this, getString(R.string.opcio1), Toast.LENGTH_LONG).show();
-	        in = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:" + lat + ',' + lon));
-	        startActivity(in);
-	        break;
-	    case R.id.button2: 
-		Toast.makeText(this, getString(R.string.opcio2), Toast.LENGTH_LONG).show();
-		in = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + adressa));
-		startActivity(in);
-	        break;
-	    case R.id.button3:
-	    	Toast.makeText(this, getString(R.string.opcio3), Toast.LENGTH_LONG).show();
-		in = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-		startActivity(in);
-	        break;
-	    case R.id.button4:
-	    	Toast.makeText(this, getString(R.string.opcio4), Toast.LENGTH_LONG).show();
-		//in = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q=" + "escola politecnica superior UdL"));
-		in = new Intent(Intent.ACTION_WEB_SEARCH);
-		in.putExtra(SearchManager.QUERY, textoABuscar);
-		startActivity(in);
-	        break;
-	    case R.id.button5:
-	    	Toast.makeText(this, getString(R.string.opcio5), Toast.LENGTH_LONG).show();
-		in = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + getText(R.string.telef)));
-		startActivity(in);
-	        break;
-	    case R.id.button6:
-	    	Toast.makeText(this, getString(R.string.opcio6), Toast.LENGTH_LONG).show();
-		in = new Intent(Intent.ACTION_VIEW);
-                in.setData(ContactsContract.Contacts.CONTENT_URI);
-		startActivity(in);
-		break;
-	    }
+			//Localización por coordenadas
+			case R.id.button1:
+				Toast.makeText(this, getString(R.string.opcio1), Toast.LENGTH_LONG).show();
+				in = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:" + lat + ',' + lon));
+				startActivity(in);
+				break;
+			//Localización por direccion
+			case R.id.button2:
+				Toast.makeText(this, getString(R.string.opcio2), Toast.LENGTH_LONG).show();
+				in = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=" + adressa));
+				startActivity(in);
+				break;
+			//Acceder a la web
+			case R.id.button3:
+				Toast.makeText(this, getString(R.string.opcio3), Toast.LENGTH_LONG).show();
+				in = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+				startActivity(in);
+				break;
+			//Buscar Google
+			case R.id.button4:
+				Toast.makeText(this, getString(R.string.opcio4), Toast.LENGTH_LONG).show();
+				//in = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q=" + "escola politecnica superior UdL"));
+				in = new Intent(Intent.ACTION_WEB_SEARCH);
+				in.putExtra(SearchManager.QUERY, textoABuscar);
+				startActivity(in);
+				break;
+			//Llamar a tlf
+			case R.id.button5:
+				Toast.makeText(this, getString(R.string.opcio5), Toast.LENGTH_LONG).show();
+				in = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + getText(R.string.telef)));
+				startActivity(in);
+				break;
+			//Marcar tlf
+			case R.id.button6:
+				Toast.makeText(this, getString(R.string.opcio6), Toast.LENGTH_LONG).show();
+				in = new Intent(Intent.ACTION_DIAL);
+				in.setData(ContactsContract.Contacts.CONTENT_URI);
+				startActivity(in);
+				break;
+			//Acceder contactos
+			case R.id.button7:
+				Toast.makeText(this, getString(R.string.opcio7), Toast.LENGTH_LONG).show();
+				break;
+			//Enviar SMS
+			case R.id.button8:
+				Toast.makeText(this, getString(R.string.opcio8), Toast.LENGTH_LONG).show();
+
+				break;
+			//Enviar email
+			case R.id.button9:
+				Toast.makeText(this, getString(R.string.opcio9), Toast.LENGTH_LONG).show();
+				break;
+			//Acceder galeria
+			case R.id.button10:
+				Toast.makeText(this, getString(R.string.opcio10), Toast.LENGTH_LONG).show();
+				break;
+			//Acceder camara
+			case R.id.button11:
+				Toast.makeText(this, getString(R.string.opcio10), Toast.LENGTH_LONG).show();
+				break;
+		}
 	}
 
 	private boolean ckeckPermissions() {
@@ -98,7 +125,7 @@ public class MainActivity extends Activity implements OnClickListener{
 				return true;
 			else
 				return false;
-		    }
+		}
 		else
 			return true;
 	}

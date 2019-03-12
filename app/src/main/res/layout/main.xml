@@ -1,8 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
@@ -18,7 +17,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" >
+        android:gravity="center">
 
         <Button
             android:id="@+id/button1"
@@ -57,7 +56,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" >
+        android:gravity="center">
 
         <Button
             android:id="@+id/button3"
@@ -75,7 +74,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center" >
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
@@ -90,18 +89,18 @@
             android:text="@string/Boto5" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/marcar" />
+            android:text="@string/boto6" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Boto6" />
+        android:text="@string/Boto7" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -116,10 +115,10 @@
             android:text="@string/smsDest" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/button8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sms" />
+            android:text="@string/boto8" />
 
     </LinearLayout>
 
@@ -136,22 +135,22 @@
             android:text="@string/emailDest" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/button9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/email" />
+            android:text="@string/boto9" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/button10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/gallery" />
+        android:text="@string/boto10" />
 
     <Button
         android:id="@+id/button11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/cam" />
+        android:text="@string/boto11" />
 
 </LinearLayout>
