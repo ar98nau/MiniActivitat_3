@@ -11,6 +11,8 @@
     <string name="emailDest">Email destinatario: sss@udl.cat\t</string>
     <string name="smsDest">Tlf. destino: 6466888777\t</string>
     <string name="telef">666666666</string>
+    <string name="mail">sss@udl.cat</string>
+    <string name="textMiss">Hola com va?</string>
 
     <!--Botones-->
     <string name="Boto1">Por coord.</string>
@@ -37,6 +39,7 @@
     <string name="opcio9">Enviando email</string>
     <string name="opcio10">Accediendo a la galeria</string>
     <string name="opcio11">Accediendo a la camara</string>
+    <string name="demo">demo</string>
 
 
 </resources>

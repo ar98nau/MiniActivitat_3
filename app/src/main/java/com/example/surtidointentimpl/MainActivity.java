@@ -9,14 +9,16 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Contacts.People;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
+
+import static android.content.Intent.EXTRA_TEXT;
 
 public class MainActivity extends Activity implements OnClickListener{
 
@@ -32,6 +34,12 @@ public class MainActivity extends Activity implements OnClickListener{
 		Button btn4 = findViewById(R.id.button4);
 		Button btn5 = findViewById(R.id.button5);
 		Button btn6 = findViewById(R.id.button6);
+		Button btn7 = findViewById(R.id.button7);
+		Button btn8 = findViewById(R.id.button8);
+		Button btn9 = findViewById(R.id.button9);
+		Button btn10 = findViewById(R.id.button10);
+		Button btn11 = findViewById(R.id.button11);
+
 
 		btn1.setOnClickListener(this);
 		btn2.setOnClickListener(this);
@@ -39,6 +47,12 @@ public class MainActivity extends Activity implements OnClickListener{
 		btn4.setOnClickListener(this);
 		btn5.setOnClickListener(this);
 		btn6.setOnClickListener(this);
+		btn7.setOnClickListener(this);
+		btn8.setOnClickListener(this);
+		btn9.setOnClickListener(this);
+		btn10.setOnClickListener(this);
+		btn11.setOnClickListener(this);
+
 
 		if (Build.VERSION.SDK_INT >= 23)
 			if (! ckeckPermissions())
@@ -89,26 +103,37 @@ public class MainActivity extends Activity implements OnClickListener{
 			//Marcar tlf
 			case R.id.button6:
 				Toast.makeText(this, getString(R.string.opcio6), Toast.LENGTH_LONG).show();
-				in = new Intent(Intent.ACTION_DIAL);
-				in.setData(ContactsContract.Contacts.CONTENT_URI);
+				in = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + getText(R.string.telef)));
 				startActivity(in);
 				break;
 			//Acceder contactos
 			case R.id.button7:
 				Toast.makeText(this, getString(R.string.opcio7), Toast.LENGTH_LONG).show();
+				in = new Intent(Intent.ACTION_VIEW, ContactsContract.Contacts.CONTENT_URI);
+				startActivity(in);
 				break;
 			//Enviar SMS
 			case R.id.button8:
 				Toast.makeText(this, getString(R.string.opcio8), Toast.LENGTH_LONG).show();
-
+				in = new Intent(Intent.ACTION_SEND, Uri.parse("sms:" + getText(R.string.telef)));
+				in.putExtra(Intent.EXTRA_TEXT, getText(R.string.textMiss));
+				in.setType("text/plain");
+				startActivity(in);
 				break;
 			//Enviar email
 			case R.id.button9:
 				Toast.makeText(this, getString(R.string.opcio9), Toast.LENGTH_LONG).show();
+				in = new Intent(Intent.ACTION_SENDTO);
+				in.setData(Uri.parse("mailto:" + getText(R.string.mail)));
+				in.putExtra(Intent.EXTRA_TEXT, getText(R.string.textMiss));
+				in.putExtra(Intent.EXTRA_SUBJECT, getText(R.string.demo));
+				startActivity(in);
 				break;
 			//Acceder galeria
 			case R.id.button10:
 				Toast.makeText(this, getString(R.string.opcio10), Toast.LENGTH_LONG).show();
+				in = new Intent(Intent.ACTION_VIEW, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+				startActivity(in);
 				break;
 			//Acceder camara
 			case R.id.button11:
