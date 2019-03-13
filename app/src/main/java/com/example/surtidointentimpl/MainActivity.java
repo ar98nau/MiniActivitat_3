@@ -185,7 +185,7 @@ public class MainActivity extends Activity implements OnClickListener{
 				break;
 			//Acceder camara
 			case R.id.button11:
-				Toast.makeText(this, getString(R.string.opcio10), Toast.LENGTH_LONG).show();
+				Toast.makeText(this, getString(R.string.opcio11), Toast.LENGTH_LONG).show();
 				break;
 		}
 	}
