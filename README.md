@@ -12,6 +12,4 @@ Third MiniActivity of android
 14/03/19
 
 ### Description ###
-¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿??????????????.
-
-A partir de l'API level 23 cal gestionar recursos (no se si això està ja implementat a la versio de la professora o no MIRAR)
+Primer contacte amb intents implicits.
