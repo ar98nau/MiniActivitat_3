@@ -40,6 +40,9 @@
     <string name="opcio10">Accediendo a la galeria</string>
     <string name="opcio11">Accediendo a la camara</string>
     <string name="demo">demo</string>
+    <string name="boto12">PICK from ThirdActivity</string>
+    <string name="third">Accediendo a ThirdActivity</string>
+    <string name="mess">mess</string>
 
 
 </resources>

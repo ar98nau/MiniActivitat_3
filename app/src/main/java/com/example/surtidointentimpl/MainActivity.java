@@ -92,7 +92,15 @@ public class MainActivity extends Activity implements OnClickListener{
                 String name = cu.getString(nameIndex);
                 tw.setText(name);
             }
-        }
+        } else if (requestCode == 2) {
+			if (resultCode == RESULT_OK) {
+				TextView tw = findViewById(R.id.textView3);
+				Bundle passedData = data.getExtras();
+				String mess = passedData.getString(getString(R.string.mess));
+				tw.setText(mess);
+
+			}
+		}
 	}
 
 	public void onClick (View v) {
@@ -157,9 +165,9 @@ public class MainActivity extends Activity implements OnClickListener{
 			//Enviar SMS
 			case R.id.button8:
 				Toast.makeText(this, getString(R.string.opcio8), Toast.LENGTH_LONG).show();
-				in = new Intent(Intent.ACTION_SEND, Uri.parse("sms:" + getText(R.string.telef)));
+				in = new Intent(Intent.ACTION_SENDTO);
+				in.setData(Uri.parse("sms:" + getText(R.string.smsDest)));
 				in.putExtra(Intent.EXTRA_TEXT, getText(R.string.textMiss));
-				in.setType("text/plain");
 				startActivity(in);
 				break;
 			//Enviar email
@@ -183,9 +191,12 @@ public class MainActivity extends Activity implements OnClickListener{
 				in = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 				startActivityForResult(in, 0);
 				break;
-			//Acceder camara
+
+			//Acceder a ThirdActivity optativa
 			case R.id.button11:
-				Toast.makeText(this, getString(R.string.opcio11), Toast.LENGTH_LONG).show();
+				Toast.makeText(this, R.string.third, Toast.LENGTH_LONG).show();
+				in = new Intent(Intent.ACTION_PICK);
+				startActivityForResult(in, 2);
 				break;
 		}
 	}
