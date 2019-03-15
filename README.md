@@ -9,7 +9,7 @@ Third MiniActivity of android
 * [CV link](https://cv.udl.cat/access/content/attachment/102025-1819/Activitats/879ab969-e44d-4867-8061-1225738914e9/MiniActv-3.pdf)
 
 ### Limit Date ###
-14/03/19
+17/03/19
 
 ### Description ###
 Primer contacte amb intents implicits.
