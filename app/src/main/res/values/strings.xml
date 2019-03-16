@@ -10,6 +10,7 @@
     <string name="link">\thttp://www.udl.cat</string>
     <string name="emailDest">Email destinatario: sss@udl.cat\t</string>
     <string name="smsDest">Tlf. destino: 6466888777\t</string>
+    <string name="smsDest2">6466888777</string>
     <string name="telef">666666666</string>
     <string name="mail">sss@udl.cat</string>
     <string name="textMiss">Hola com va?</string>

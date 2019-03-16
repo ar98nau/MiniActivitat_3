@@ -166,7 +166,7 @@ public class MainActivity extends Activity implements OnClickListener{
 			case R.id.button8:
 				Toast.makeText(this, getString(R.string.opcio8), Toast.LENGTH_LONG).show();
 				in = new Intent(Intent.ACTION_SENDTO);
-				in.setData(Uri.parse("sms:" + getText(R.string.smsDest)));
+				in.setData(Uri.parse("sms:" + getText(R.string.smsDest2)));
 				in.putExtra(Intent.EXTRA_TEXT, getText(R.string.textMiss));
 				startActivity(in);
 				break;
